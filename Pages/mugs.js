@@ -1,9 +1,9 @@
 import React from 'react'
 
-const mugs = () => {
+const Mugs = () => {
   return (
-    <div>mugs</div>
+    <div>Mugs</div>
   )
 }
 
-export default mugs
+export default Mugs

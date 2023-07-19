@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <Navbar />
+      
       <img src="/assets/images/new1.avif"></img>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -169,8 +169,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }
