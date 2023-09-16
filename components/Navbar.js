@@ -7,10 +7,11 @@ import {
   AiFillPlusCircle,
   AiFillMinusCircle,
 } from "react-icons/ai";
+import { MdAccountCircle } from "react-icons/md"; 
 import { BsFillBagFill } from "react-icons/bs";
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  console.log(cart, addToCart, removeFromCart, clearCart, subTotal);
+  // console.log(cart, addToCart, removeFromCart, clearCart, subTotal);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -36,7 +37,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         </div>
         <div className="nav">
           <ul className="flex items-center space-x-6 font-bold md:text-sm">
-            <Link href={"/tshirt"}>
+            <Link href={"/tshirts"}>
               <li>T-Shirts</li>
             </Link>
             <Link href={"/hoodies"}>
@@ -52,10 +53,12 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         </div>
 
         <div
-          onClick={toggleCart}
-          className="cursor-pointer cart absolute right-0 top-4 mx-5"
+          
+          className="cursor-pointer cart absolute right-0 top-4 mx-5 flex"
         >
-          <AiOutlineShoppingCart className="text-xl md:text-2xl" />
+          <Link href={'/login'}><MdAccountCircle className="text-xl md:text-2xl mx-2"  />
+          </Link>
+          <AiOutlineShoppingCart onClick={toggleCart} className="text-xl md:text-2xl" />
         </div>
         <div
           ref={ref}
@@ -78,7 +81,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
               return (
                 <li key={k}>
                   <div className="item flex my-5">
-                    <div className="w-2/3 font-semibold">{cart[k].name}</div>
+                    <div className="w-2/3 font-semibold">{cart[k].name}({cart[k].size}/{cart[k].variant})</div>
                     <div className="flex font-semibold items-center justify-center w-1/3 text-lg">
                       <AiFillMinusCircle
                         onClick={() => {
